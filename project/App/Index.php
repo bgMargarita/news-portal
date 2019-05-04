@@ -11,12 +11,9 @@ $mode = ($_GET["mode"]);
 <html>
 <header>
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3                                                                                                                     .3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww                                                                                                                     7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.m                                                                                                                     in.js">
-
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js">
     </script>
 </header>
 <body>
@@ -49,7 +46,8 @@ $mode = ($_GET["mode"]);
         <?php
         $query = "SELECT * FROM news";
 
-        $result = mysqli_query($conn, $query) or die("Can't connect or table                                                                                                                      does not exist " . mysqli_error($conn));
+        $result = mysqli_query($conn, $query) or die("Can't connect or table does not exist " . mysqli_error($conn));
+
         if ($result) {
             $i = 0;
             while ($row = mysqli_fetch_assoc($result)) {
@@ -59,7 +57,7 @@ $mode = ($_GET["mode"]);
                 echo "<p>" . $row['body'] . "</p>";
                 if ($mode === 'admin') {
 
-                    echo "<p><button   type='button'  name='" . $row['news_id'] . "'  cla                                                                                                                     ss='btn btn-secondary btn-sm pull-right'>Remove</button> </p>";
+                   echo "<p><button   type='button'  name='" . $row['news_id'] . "'  class='btn btn-secondary btn-sm pull-right'>Remove</button> </p>";                                                                                                 ss='btn btn-secondary btn-sm pull-right'>Remove</button> </p>";
                 }
 
 
